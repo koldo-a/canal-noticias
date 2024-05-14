@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html th:replace="~{_global :: plantilla(~{::title}, ~{::main})}"
+	xmlns:th="http://www.thymeleaf.org">
+<title>Detalle Noticias</title>
+<main>
+	<h1 class="display-1 p-3"></h1>
+	<h1 class="display-1 p-3">Noticias</h1>
+
+	<h1>Detalles de la Noticia</h1>
+	<div class="contenedor4">
+		<table
+			class="table table-bordered table-striped table-hover table-condensed table-responsive-sm">
+			<tr>
+				<th>ID</th>
+				<td th:text="${noticia.id}"></td>
+			</tr>
+			<tr>
+				<th>Nombre</th>
+				<td th:text="${noticia.nombre}"></td>
+			</tr>
+			<tr>
+				<th>Imagen</th>
+				<td><img th:src="${noticia.imagenUrl}"
+					alt="Imagen de la noticia"
+					style="max-width: 300px; max-height: 300px;"></td>
+
+			</tr>
+			<tr>
+				<th>Imagen URL</th>
+				<td th:text="${noticia.imagenUrl}"></td>
+			</tr>
+
+			<tr>
+				<th>Descripción</th>
+				<td th:text="${noticia.descripcion}"></td>
+			</tr>
+			<tr>
+				<th>Texto noticia</th>
+				<td th:text="${noticia.noticiaTexto}"></td>
+			</tr>
+			<tr>
+				<th>Autor</th>
+				<td th:if="${noticia.autor != null}"
+					th:text="${noticia.autor.nombre} + ' ' + ${noticia.autor.apellido}"></td>
+				<td th:if="${noticia.autor == null}">Autor Desconocido</td>
+			</tr>
+		</table>
+
+	</div>
+</main>
